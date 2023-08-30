@@ -1,10 +1,11 @@
 @extends('layouts.master')
 @section('content')
-<form action="">
+<form action="{{route('quizz.init')}}" method="post">
+    @csrf
     <label for="pseudo">Pseudonyme:</label><br>
     <input type="text" id="pseudo" name="pseudo"><br>
     <select name="sujet" id="sujet">
-        <option value="" disabled>Sélectionner le sujet:</option>
+        <option value="" selected disabled>Sélectionner le sujet:</option>
         @foreach ($subjects as $subject)
         <option value="{{$subject['id']}}">{{$subject['name']}}</option>
         @endforeach
@@ -24,6 +25,6 @@
             <label for="louie">Difficile</label>
         </div>
     </fieldset>
-    <button type="button">Démarrer le Quizz</button>                    
+    <button type="submit">Démarrer le Quizz</button>                    
 </form>
 @endsection
