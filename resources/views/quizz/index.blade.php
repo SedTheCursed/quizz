@@ -1,3 +1,4 @@
+@extends('layouts.master')
 @section('formulaire')
 <form action="">
     <label for="pseudo">Pseudonyme:</label><br>
