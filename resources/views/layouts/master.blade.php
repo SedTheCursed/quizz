@@ -11,6 +11,7 @@
 </head>
 
 <body>
+  @include('layouts.navBar')
   <div class="container">
     <div class="alert alert-success" role="alert">
       <h4 class="alert-heading"> conception!</h4>
