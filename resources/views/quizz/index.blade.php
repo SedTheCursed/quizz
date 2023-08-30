@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('formulaire')
+@section('content')
 <form action="">
     <label for="pseudo">Pseudonyme:</label><br>
     <input type="text" id="pseudo" name="pseudo"><br>
@@ -9,4 +9,3 @@
     <input type="text" id="difficulte" name="difficulte"><br>
     <button type="button">Démarrer le Quizz</button>                    
 </form>
- @endsection                   
