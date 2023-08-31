@@ -3,8 +3,8 @@
 <form action="{{route('quizz.init')}}" method="post">
     @csrf
     <label for="pseudo">Pseudonyme:</label><br>
-    <input type="text" id="pseudo" name="pseudo"><br><br>
-        <select name="sujet" id="sujet">
+    <input type="text" id="pseudo" name="pseudo" required><br><br>
+        <select name="sujet" id="sujet" required>
             <option value="" selected disabled>Sélectionner le sujet:</option>
             @foreach ($subjects as $subject)
             <option value="{{$subject['id']}}">{{$subject['name']}}</option>
