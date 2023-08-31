@@ -21,7 +21,7 @@ class Quizz extends Controller
         
         $user = $request->pseudo;
         $subject = $request->sujet;
-        $difficulty = $request->drone;
+        $difficulty = $request->difficulty;
         $url = "https://opentdb.com/api.php?amount=10&category="
             . $subject . "&difficulty=" 
             . $difficulty ."&type=multiple";

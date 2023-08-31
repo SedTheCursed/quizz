@@ -12,11 +12,11 @@
         </select><br><br>
             <legend>Sélectionner la difficulté:</legend>
             <div>
-                <input type="radio" id="facile" value="easy" checked />
+                <input type="radio" id="facile" value="easy" name="difficulty" checked />
                 <label for="facile">Facile</label>  
-                <input type="radio" id="moyen"  value="medium" />
+                <input type="radio" id="moyen"  value="medium" name="difficulty"/>
                 <label for="dewey">Moyen</label>
-                <input type="radio" id="difficile"  value="hard" />
+                <input type="radio" id="difficile"  value="hard" name="difficulty" />
                 <label for="louie">Difficile</label>
             </div>
         </fieldset><br>
