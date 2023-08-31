@@ -61,8 +61,7 @@ class Quizz extends Controller
         return view("index", [
             "number" => $number,
             "question" => $question,
-            "answers" => $answers,
-            "right" => session()->get("correct_index")
+            "answers" => $answers
         ]);
     }
 
