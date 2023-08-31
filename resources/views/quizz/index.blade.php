@@ -1,29 +1,25 @@
 @extends('layouts.master')
 @section('content')
-<form action="">
+<form action="{{route('quizz.init')}}" method="post">
+    @csrf
     <label for="pseudo">Pseudonyme:</label><br>
-    <input type="text" id="pseudo" name="pseudo"><br>
-    <select name="sujet" id="sujet">
-        <option value="" disabled>Sélectionner le sujet:</option>
-        @foreach ($subjects as $subject)
-        <option value="{{$subject['id']}}">{{$subject['name']}}</option>
-        @endforeach
-    </select>
-    <fieldset>
-        <legend>Sélectionner la difficulté:</legend>
-        <div>
-            <input type="radio" id="facile" name="drone" value="easy" checked />
-            <label for="facile">Facile</label>
-        </div>
-        <div>
-            <input type="radio" id="moyen" name="drone" value="medium" />
-            <label for="dewey">Moyen</label>
-        </div>
-        <div>
-            <input type="radio" id="difficile" name="drone" value="hard" />
-            <label for="louie">Difficile</label>
-        </div>
-    </fieldset>
-    <button type="button">Démarrer le Quizz</button>                    
+    <input type="text" id="pseudo" name="pseudo" required><br><br>
+        <select name="sujet" id="sujet" required>
+            <option value="" selected disabled>Sélectionner le sujet:</option>
+            @foreach ($subjects as $subject)
+            <option value="{{$subject['id']}}">{{$subject['name']}}</option>
+            @endforeach
+        </select><br><br>
+            <legend>Sélectionner la difficulté:</legend>
+            <div>
+                <input type="radio" id="facile" value="easy" name="difficulty" checked />
+                <label for="facile">Facile</label>  
+                <input type="radio" id="moyen"  value="medium" name="difficulty"/>
+                <label for="dewey">Moyen</label>
+                <input type="radio" id="difficile"  value="hard" name="difficulty" />
+                <label for="louie">Difficile</label>
+            </div>
+        </fieldset><br>
+    <button type="submit">Démarrer le Quizz</button>                    
 </form>
 @endsection
