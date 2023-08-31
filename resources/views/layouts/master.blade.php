@@ -1,24 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <title> quizz </title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css')}}">
-  <script src="{{ asset('bootstrap.bundle.min.js') }}"></script>
-
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css')}}">
+    <title>Quizz</title>
+    <style>
+      body, p {
+        width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 200px;
+        text-align: center;
+        background-color: #0080ff;
+        
+        font-size: 30px; 
+        font-family: "Montserrat";
+      }
+      legend{
+        font-size: 30px; 
+        font-family: "Montserrat"; 
+      }
+      p{
+        font-size: 60px; 
+        font-family: "Montserrat";
+        color: "azure"; 
+      }
+      form{
+        text-align: center;
+      }
+      </style>
 </head>
-
 <body>
-  <div class="container">
-    <div class="alert alert-success" role="alert">
-      <h4 class="alert-heading"> conception!</h4>
-      <p class="lead"> Apllication de laravel </p>
-      <hr>
-      <p class="mb-0">developpement.</p>
-      @yield('content')
-    </div>
-
+  <main class="container">
+    <p>QUIZZ</p>
+    @yield('content')
+  </main>
 </body>
 </html>
