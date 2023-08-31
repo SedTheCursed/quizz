@@ -5,10 +5,10 @@
     <label for="pseudo">Pseudonyme:</label><br>
     <input type="text" id="pseudo" name="pseudo"><br><br>
         <select name="sujet" id="sujet">
-            <option value="" disabled>Sélectionner le sujet:</option>
-        {{--  @foreach ($subjects as $subject)
+            <option value="" selected disabled>Sélectionner le sujet:</option>
+            @foreach ($subjects as $subject)
             <option value="{{$subject['id']}}">{{$subject['name']}}</option>
-            @endforeach  --}}
+            @endforeach
         </select><br><br>
             <legend>Sélectionner la difficulté:</legend>
             <div>
