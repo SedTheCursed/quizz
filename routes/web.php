@@ -17,3 +17,6 @@ use App\Http\Controllers\Quizz;
 Route::controller(Quizz::class)->group(function(){
     Route::get("/", "index");
 });
+Route::get('/scores',function(){
+     return view('quizz.scores');
+});
