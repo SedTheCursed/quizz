@@ -18,16 +18,17 @@ class Quizz extends Controller
     public function quizz(Request $request) {
 
         $client = new Client(['verify' => false]);
-        
+
         $user = $request->pseudo;
         $subject = $request->sujet;
         $difficulty = $request->difficulty;
         $url = "https://opentdb.com/api.php?amount=10&category="
-            . $subject . "&difficulty=" 
+            . $subject . "&difficulty="
             . $difficulty ."&type=multiple";
         $response = $client->get($url);
         $quizz = json_decode($response->getBody()->getContents(), true);
-        
+
         return view("index", ['quizz' => $quizz]);
     }
+
 }
