@@ -16,5 +16,6 @@ use App\Http\Controllers\Quizz;
 
 Route::controller(Quizz::class)->group(function(){
     Route::get("/", "index");
-    Route::post("/", "quizz")->name("quizz.init");
+    Route::post("/", "init")->name("quizz.init");
+    Route::get("/quizz", "question")->name("quizz.question");
 });

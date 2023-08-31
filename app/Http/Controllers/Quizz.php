@@ -24,7 +24,7 @@ class Quizz extends Controller
         return view('quizz.index', ["subjects" => $subjects, 'user' => $user]);
     }
 
-    public function quizz(Request $request) {
+    public function init(Request $request) {
 
         $client = new Client(['verify' => false]);
         
@@ -47,9 +47,46 @@ class Quizz extends Controller
             "difficulty" => $difficulty,
             "quizz" => $quizz,
             "score" => 0,
-            "currentQuestion" => 0
+            "currentIndex" => 0
         ]);
         
-        return view("index", ["session" => session()->get("difficulty")]);
+        return redirect("/quizz");
+    }
+
+    public function question() {
+        $quizz = session()->get("quizz");
+        $number = session()->get("currentIndex");
+        $item = $quizz[$number];
+        session(["currentQuestion" => $item]);
+
+        $question = html_entity_decode($item["question"]);
+        $answers = $this->generateAnswers($item);
+
+        return view("index", [
+            "number" => $number,
+            "question" => $question,
+            "answers" => $answers,
+            "right" => session()->get("correct_index")
+        ]);
+    }
+
+    private function generateAnswers($item) {
+        $correct_index = rand(0,3);
+        $answers = [];
+        $incorrect_answers = $item["incorrect_answers"];
+
+        for($i = 0; $i < $correct_index; $i++) {
+            array_push($answers, $incorrect_answers[$i]);
+        }
+
+        array_push($answers, $item["correct_answer"]);
+
+        for ($i = $correct_index; $i < sizeof($incorrect_answers); $i++) {
+            array_push($answers, $incorrect_answers[$i]);
+        }
+
+        session(["correct_index" => $correct_index]);
+
+        return  $answers;
     }
 }
