@@ -59,7 +59,7 @@ class Quizz extends Controller
         $answers = $this->generateAnswers($item);
 
         return view("index", [
-            "number" => $number,
+            "number" => $number+1,
             "question" => $question,
             "answers" => $answers
         ]);
