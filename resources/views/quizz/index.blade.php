@@ -3,7 +3,7 @@
 <form action="{{route('quizz.init')}}" method="post">
     @csrf
     <label for="pseudo">Pseudonyme:</label><br>
-    <input type="text" id="pseudo" name="pseudo" required><br><br>
+    <input type="text" id="pseudo" name="pseudo" value="{{$user}}" required><br><br>
         <select name="sujet" id="sujet" required>
             <option value="" selected disabled>Sélectionner le sujet:</option>
             @foreach ($subjects as $subject)
@@ -15,9 +15,9 @@
                 <input type="radio" id="facile" value="easy" name="difficulty" checked />
                 <label for="facile">Facile</label>  
                 <input type="radio" id="moyen"  value="medium" name="difficulty"/>
-                <label for="dewey">Moyen</label>
+                <label for="moyen">Moyen</label>
                 <input type="radio" id="difficile"  value="hard" name="difficulty" />
-                <label for="louie">Difficile</label>
+                <label for="difficile">Difficile</label>
             </div>
         </fieldset><br>
     <button type="submit">Démarrer le Quizz</button>                    
