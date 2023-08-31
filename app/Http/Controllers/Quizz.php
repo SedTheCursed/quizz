@@ -27,17 +27,13 @@ class Quizz extends Controller
     public function init(Request $request) {
 
         $client = new Client(['verify' => false]);
-        
+
         $user = $request->pseudo;
         $subject = $request->sujet;
         $difficulty = $request->difficulty;
-        $token = $request->session()->get("apiToken");
-
-        $url = "https://opentdb.com/api.php?amount=10&category=". $subject 
-            . "&difficulty=" . $difficulty 
-            . "&token=" . $token
-            . "&type=multiple";
-
+        $url = "https://opentdb.com/api.php?amount=10&category="
+            . $subject . "&difficulty="
+            . $difficulty ."&type=multiple";
         $response = $client->get($url);
         $quizz = json_decode($response->getBody()->getContents(), true)["results"];
 
@@ -89,4 +85,5 @@ class Quizz extends Controller
 
         return  $answers;
     }
+
 }

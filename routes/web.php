@@ -19,3 +19,6 @@ Route::controller(Quizz::class)->group(function(){
     Route::post("/", "init")->name("quizz.init");
     Route::get("/quizz", "question")->name("quizz.question");
 });
+Route::get('/scores',function(){
+     return view('quizz.scores');
+});
