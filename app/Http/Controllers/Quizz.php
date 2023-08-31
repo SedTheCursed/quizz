@@ -61,9 +61,19 @@ class Quizz extends Controller
         return view("index", [
             "number" => $number,
             "question" => $question,
-            "answers" => $answers,
-            "right" => session()->get("correct_index")
+            "answers" => $answers
         ]);
+    }
+
+    public function checkAnswer(Request $request) {
+        if (isset($request->answer)) {
+            $correct_answer = session()->get("correct_answer");
+            $given_answer = (int) $request->answer;
+
+            if ($given_answer == $correct_answer) {
+                session()->increment("score");
+            }
+        }
     }
 
     private function generateAnswers($item) {
