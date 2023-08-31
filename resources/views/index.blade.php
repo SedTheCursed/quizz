@@ -1,1 +1,1 @@
-{{var_dump($quizz)}}
+{{var_dump($session)}}

@@ -9,10 +9,19 @@ class Quizz extends Controller
 {
     public function index() {
         $client = new Client(['verify' => false]);
+
+        if(!session()->has("apiToken")) {
+            $response = $client->get("https://opentdb.com/api_token.php?command=request");
+            $token = json_decode($response->getBody()->getContents(), true)["token"];
+            session(["apiToken" => $token]);
+        }
+
         $response = $client->get("https://opentdb.com/api_category.php");
         $subjects = json_decode($response->getBody()->getContents(), true)["trivia_categories"];
 
-        return view('quizz.index', ["subjects" => $subjects]);
+        $user = (session()->has("user"))?session()->get("user"):"";
+
+        return view('quizz.index', ["subjects" => $subjects, 'user' => $user]);
     }
 
     public function quizz(Request $request) {
